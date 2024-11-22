@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        select, input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CRUD Operations</h1>
+
+        <form method="POST">
+            <label for="table">Select Table:</label>
+            <select name="table" id="table" required>
+                <option value="PII">PII</option>
+                <option value="PHI">PHI</option>
+                <option value="PCI">PCI</option>
+            </select>
+
+            <label for="action">Select Action:</label>
+            <select name="action" id="action" required>
+                <option value="Read">Read</option>
+                <option value="Update">Update</option>
+                <option value="Delete">Delete</option>
+            </select>
+
+            <div id="crud-form">
+                {% if table %}
+                    {% for field in fields %}
+                        <label for="{{ field }}">{{ field }}:</label>
+                        <input type="text" name="{{ field }}" id="{{ field }}">
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        {% if action == 'Read' %}
+            <h2>Data for {{ table }}</h2>
+            <table>
+                <tr>
+                    {% for field in fields %}
+                        <th>{{ field }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data %}
+                    <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+
+</body>
+</html>
