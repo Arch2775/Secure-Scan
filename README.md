@@ -165,11 +165,17 @@ Delete Data:
 
 ## Design Diagrams 
 
+1. System Design 
 ![System Design](ss/1.jpg)
 
+2. Database Design
 ![Database Design](ss/2.jpg)
 
+3. Docker containerization process
 ![Docker containerization process](ss/3.jpg)
+
+4. Linter results
+   ![linter](ss/linter.jpg)
 
 
 
