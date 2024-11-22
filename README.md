@@ -163,9 +163,15 @@ Delete Data:
 
 - If you wish to delete a file and its associated classified data, use the Delete button on the results page.
 
-## Contributions
+## Design Diagrams 
 
-Feel free to fork this repository, submit issues, or make pull requests. All contributions are welcome!
+![System Design](ss/1.jpg)
+
+![Database Design](ss/2.jpg)
+
+![Docker containerization process](ss/3.jpg)
+
+
 
 
 
