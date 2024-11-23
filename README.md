@@ -142,7 +142,19 @@ docker logs <container_id>
 ```
 
 
+###  Build and run the app with Docker Compose:
 
+```bash
+docker-compose up --build
+```
+
+Access your app at http://localhost:5001
+
+### To stop and remove the container, run:
+
+```bash
+docker-compose down
+```
 
 
 
