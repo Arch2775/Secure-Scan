@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000" # Map host port 5000 to container port 5000
+    volumes:
+      - ./data.db:/app/data.db # Mount the SQLite database file for persistence
+    environment:
+      FLASK_ENV: development # Optional: Use "production" for production mode
